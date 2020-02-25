@@ -1,0 +1,12 @@
+
+create table  REGION_COPY AS SELECT * FROM REGIONS;
+
+create or replace PROCEDURE UPDATE_REGIONS IS
+id REGION_COPY.REGION_ID%Type;
+name REGION_COPY.REGIONS_NAME%Type;
+
+begin
+INSERT INTO REGION_COPY VALUES(id , name);
+DBMS_OUTPUT.PUT_LINE('Inserted '|| SQL%ROWCOUNT || 'row');
+
+end;
